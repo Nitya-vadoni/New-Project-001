@@ -7,12 +7,13 @@ pipeline{
         VM_IP = "3.237.40.196"
     }
 
-    stages{
-        steps("Create docker image"){
+     stages {
+        stage('create docker image') {
+            steps{
             sh 'docker build -f Dockerfile-Node -t $NODE_IMAGE .'
             sh 'docker build -f Dockerfile-nginx -t $NGINX_IMAGE .'
         }
-    
+        }
 
         stage("Login to Dockerhub"){
             steps {
