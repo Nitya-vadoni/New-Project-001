@@ -32,8 +32,8 @@ pipeline{
         stage('Deploy to Target-VM') {
 	     steps {
 		 sshagent(['ec2-ssh-key']) {
-            sh '''
-            ssh -o StrictHostKeyChecking=no ubuntu@$VM_IP <<EOF
+    sh '''
+    ssh -o StrictHostKeyChecking=no ubuntu@$VM_IP <<EOF
 
     echo "Running on: $(hostname)" 
 
@@ -51,7 +51,7 @@ pipeline{
     docker run -d -p 3000:3000 --name Nodejs --network node-app $Node_IMAGE
     docker run -d -p 80:80 --name Nginx --network node-app $Nginx_IMAGE
     EOF
-    ...
+    '''
         }
         }
             }
