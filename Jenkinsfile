@@ -52,9 +52,9 @@ pipeline{
             docker run -d -p 80:80 --name Nginx --network node-app $Nginx_IMAGE
         EOF
         ...
-
         }
         }
     }
     }
+}
 }
