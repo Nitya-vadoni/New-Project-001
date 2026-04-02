@@ -4,7 +4,7 @@ pipeline{
         DOCKER_USER ="nityavadoni"
         NODE_IMAGE = "${DOCKER_USER}/Node-app"
         NGINX_IMAGE = "${DOCKER_USER}/Nginx-app"
-        VM_iP = "3.237.40.196"
+        VM_IP = "3.237.40.196"
     }
 
     stages{
@@ -35,25 +35,25 @@ pipeline{
             sh '''
             ssh -o StrictHostKeyChecking=no ubuntu@$VM_IP <<EOF
 
-            echo "Running on: $(hostname)" 
+    echo "Running on: $(hostname)" 
 
-            docker pull $Node_image 
-            docker pull $Nginx_image
+    docker pull $Node_image 
+    docker pull $Nginx_image
 
-            docker network create node-app
+    docker network create node-app
 
-            docker stop Nodejs || true
-            docker rm Nodejs ||true
+    docker stop Nodejs || true
+    docker rm Nodejs ||true
 
-            docker stop Nginx || true
-            docker rm Nginx || true
+    docker stop Nginx || true
+    docker rm Nginx || true
 
-            docker run -d -p 3000:3000 --name Nodejs --network node-app $Node_IMAGE
-            docker run -d -p 80:80 --name Nginx --network node-app $Nginx_IMAGE
+    docker run -d -p 3000:3000 --name Nodejs --network node-app $Node_IMAGE
+    docker run -d -p 80:80 --name Nginx --network node-app $Nginx_IMAGE
     EOF
     ...
         }
         }
-    }
-    }
-}
+            }
+                }
+                    }
