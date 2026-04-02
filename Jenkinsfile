@@ -12,7 +12,7 @@ pipeline{
             sh 'docker build -f Dockerfile-Node -t $NODE_IMAGE .'
             sh 'docker build -f Dockerfile-nginx -t $NGINX_IMAGE .'
         }
-    }
+    
 
         stage("Login to Dockerhub"){
             steps {
@@ -52,8 +52,9 @@ pipeline{
     docker run -d -p 80:80 --name Nginx --network node-app $Nginx_IMAGE
     EOF
     '''
-        }
-        }
-            }
-                }
-                    }
+    }
+    }
+    }
+    }
+    }
+}
