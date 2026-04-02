@@ -38,8 +38,8 @@ pipeline{
 
         echo "Running on: $(hostname)" 
 
-        docker pull $Node_image 
-        docker pull $Nginx_image
+        docker pull $NODE_IMAGE 
+        docker pull $NGINX_IMAGE
 
         docker network create node-app
 
