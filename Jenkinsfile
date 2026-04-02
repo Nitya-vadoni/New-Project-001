@@ -8,7 +8,7 @@ pipeline{
     }
 
     stages{
-        stage("Create docker image"){
+        steps("Create docker image"){
             sh 'docker build -f Dockerfile-Node -t $NODE_IMAGE .'
             sh 'docker build -f Dockerfile-nginx -t $NGINX_IMAGE .'
         }
