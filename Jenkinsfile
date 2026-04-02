@@ -2,8 +2,8 @@ pipeline{
     agent any
     environment{
         DOCKER_USER ="nityavadoni"
-        NODE_IMAGE = "${DOCKER_USER}/Node-app"
-        NGINX_IMAGE = "${DOCKER_USER}/Nginx-app"
+        NODE_IMAGE = "${DOCKER_USER}/node-app"
+        NGINX_IMAGE = "${DOCKER_USER}/nginx-app"
         VM_IP = "3.237.40.196"
     }
 
